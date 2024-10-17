@@ -51,24 +51,28 @@
                                     <hr/>
                                 </div>
                                 <div class="form-body">
-                                    <form class="row g-3">
+
+                                    @include('_message')
+
+                                    <form class="row g-3" action="{{ url('login') }}" method="post">
+                                        @csrf
                                         <div class="col-12">
                                             <label for="inputEmailAddress" class="form-label">Email Address</label>
-                                            <input type="email" class="form-control" id="inputEmailAddress" placeholder="Email Address">
+                                            <input type="email" name="email" class="form-control" id="inputEmailAddress" placeholder="Email Address">
                                         </div>
                                         <div class="col-12">
                                             <label for="inputChoosePassword" class="form-label">Enter Password</label>
                                             <div class="input-group" id="show_hide_password">
-                                                <input type="password" class="form-control border-end-0" id="inputChoosePassword" value="12345678" placeholder="Enter Password"> <a href="javascript:;" class="input-group-text bg-transparent"><i class='bx bx-hide'></i></a>
+                                                <input type="password" name="password" class="form-control border-end-0" id="inputChoosePassword" value="12345678" placeholder="Enter Password"> <a href="javascript:;" class="input-group-text bg-transparent"><i class='bx bx-hide'></i></a>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-check form-switch">
-                                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
+                                                <input class="form-check-input" name="remember" type="checkbox" id="flexSwitchCheckChecked" checked>
                                                 <label class="form-check-label" for="flexSwitchCheckChecked">Remember Me</label>
                                             </div>
                                         </div>
-                                        <div class="col-md-6 text-end">	<a href="authentication-forgot-password.html">Forgot Password ?</a>
+                                        <div class="col-md-6 text-end">	<a href="{{ url('forgot-password') }}">Forgot Password ?</a>
                                         </div>
                                         <div class="col-12">
                                             <div class="d-grid">
